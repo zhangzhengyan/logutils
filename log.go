@@ -61,6 +61,7 @@ func ParseLevel(lvl string) (log.Level, bool) {
 func InitLog(logFileName string, level log.Level) {
 	hook, _ := NewHook(logFileName)
 	log.SetLevel(level)
+	log.SetReportCaller(true)
 	if logFileName == "" {
 		log.SetOutput(os.Stdout)
 	} else {
